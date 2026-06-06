@@ -1,0 +1,120 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  body {
+    @apply bg-gray-50 text-gray-900 dark:bg-gray-900 dark:text-gray-100 overflow-x-hidden;
+    font-family: 'Inter', ui-sans-serif, system-ui, -apple-system, sans-serif;
+  }
+  * {
+    @apply transition-colors duration-200;
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-100%); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes pulse-soft {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+@utility animate-fadeIn {
+  animation: fadeIn 0.4s ease-out both;
+}
+
+@utility animate-slideDown {
+  animation: slideDown 0.3s ease-out both;
+}
+
+@utility animate-scaleIn {
+  animation: scaleIn 0.3s ease-out both;
+}
+
+@utility animate-shimmer {
+  animation: shimmer 2s linear infinite;
+}
+
+@utility animate-pulse-soft {
+  animation: pulse-soft 2s ease-in-out infinite;
+}
+
+@utility stagger-1 {
+  animation-delay: 0.05s;
+}
+
+@utility stagger-2 {
+  animation-delay: 0.1s;
+}
+
+@utility stagger-3 {
+  animation-delay: 0.15s;
+}
+
+@utility stagger-4 {
+  animation-delay: 0.2s;
+}
+
+@utility stagger-5 {
+  animation-delay: 0.25s;
+}
+
+/* Translatable word styles */
+.translatable-container {
+  cursor: default;
+}
+
+.translatable-word {
+  cursor: pointer;
+  border-radius: 3px;
+  padding: 1px 0;
+  transition: background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.translatable-word:hover {
+  background-color: rgba(99, 102, 241, 0.1);
+  color: rgb(99, 102, 241);
+}
+
+:where(.dark) .translatable-word:hover {
+  background-color: rgba(129, 140, 248, 0.15);
+  color: rgb(165, 180, 252);
+}
+
+@keyframes wordHighlight {
+  0% { background-color: transparent; box-shadow: none; }
+  30% { background-color: rgba(34, 211, 238, 0.3); box-shadow: 0 0 0 3px rgba(34, 211, 238, 0.2); }
+  100% { background-color: rgba(34, 211, 238, 0.1); box-shadow: 0 0 0 2px rgba(34, 211, 238, 0.15); }
+}
+
+:where(.dark) .translatable-highlight {
+  animation: wordHighlightDark 2s ease-out both;
+}
+
+@keyframes wordHighlightDark {
+  0% { background-color: transparent; box-shadow: none; }
+  30% { background-color: rgba(34, 211, 238, 0.35); box-shadow: 0 0 0 3px rgba(34, 211, 238, 0.25); }
+  100% { background-color: rgba(34, 211, 238, 0.15); box-shadow: 0 0 0 2px rgba(34, 211, 238, 0.2); }
+}
+
+.translatable-highlight {
+  animation: wordHighlight 2s ease-out both;
+}
