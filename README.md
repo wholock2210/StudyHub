@@ -10,6 +10,7 @@ A TOEIC study app with exam simulation and vocabulary flashcards.
 - **Text-to-speech** — Tap to hear pronunciation
 - **Instant translation** — Tap any English word to translate (English category)
 - **PDF export** — Print or share exam sets as PDF
+- **AI generation** — Generate exam questions or flashcards from a topic description using AI, with multi-turn refinement before saving
 - **Markdown formatting** — Bold, italic, underline, highlight, colors in questions and explanations
 - **Multilingual** — Vietnamese / English UI
 - **Dark mode** — Light and dark themes
